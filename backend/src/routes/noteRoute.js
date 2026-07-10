@@ -5,7 +5,7 @@ import { hasToken } from "../middlewares/hasToken.js";
 const noteRoute = express.Router()
 
 noteRoute.post("/add", hasToken, addNote)
-noteRoute.get("/allNote", getAllNote)
+noteRoute.get("/allNote", hasToken, getAllNote)
 noteRoute.put("/update/:id", hasToken, editNote)
 noteRoute.delete("/delete/:id", hasToken, deleteNote)
 export default noteRoute
