@@ -90,7 +90,7 @@ export const verificationEmail = async (token, email, userName) => {
                             color:#9ca3af;
                             font-size:14px;
                         ">
-                            This link will expire in 15 minutes.
+                            This link will expire in 5 minutes.
                         </p>
 
                     </div>
