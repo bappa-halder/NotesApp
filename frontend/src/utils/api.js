@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "notes-app-backend-weld.vercel.app",
+    baseURL: "https://notes-app-backend-weld.vercel.app",
     withCredentials: true
 })
 
@@ -27,7 +27,7 @@ api.interceptors.response.use(
             originalRequest._retry = true
 
             try {
-                const response = await axios.post("http://localhost:7000/user/refresh-token",
+                const response = await axios.post("https://notes-app-backend-weld.vercel.app/user/refresh-token",
                     {},
                     {
                         withCredentials: true
