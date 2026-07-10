@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 const app = express()
 const port = process.env.PORT
 
-dbConnect()
+await dbConnect()
 
 app.use(express.json())
 app.use(cookieParser());
