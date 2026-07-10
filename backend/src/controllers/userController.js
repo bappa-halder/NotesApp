@@ -32,7 +32,7 @@ export const userRegister = async (req, res) => {
                 expiresIn: "5m"
             }
         )
-        verificationEmail(token, email, userName)
+        await verificationEmail(token, email, userName)
         user.token = token
         await user.save()
 
