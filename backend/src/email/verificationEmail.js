@@ -2,16 +2,18 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv/config";
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.EMAIL,
-        pass: process.env.PASSWORD
-    }
+        pass: process.env.PASSWORD,
+    },
 })
 
 export const verificationEmail = async (token, email, userName) => {
     try {
-        const verificationLink = `http://localhost:5173/verify/${token}`
+        const verificationLink = `https://notes-app-pearl-three.vercel.app/verify/${token}`
         const emailConfig = {
             from: `"Notes App" <${process.env.EMAIL}>`,
             to: email,
@@ -97,6 +99,7 @@ export const verificationEmail = async (token, email, userName) => {
         }
         await transporter.sendMail(emailConfig)
     } catch (error) {
-        throw new Error("Failed to send verification email")
+        console.error("Email Error:", error);
+        throw error;
     }
 }
