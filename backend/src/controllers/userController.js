@@ -12,7 +12,7 @@ export const userRegister = async (req, res) => {
             email: email
         })
         if (existing) {
-            return res.status(401).json({
+            return res.status(409).json({
                 success: false,
                 message: "User already exist"
             })
